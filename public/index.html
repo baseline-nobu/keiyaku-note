@@ -1158,6 +1158,41 @@ table {
 </style>
 <!-- mobile-title-and-layout-fix-end -->
 
+
+<!-- date-height-fix-start -->
+<style>
+/* 次回支払日の date 入力の高さを他の入力欄と揃える */
+input[type="text"],
+input[type="date"],
+select {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  height: 72px !important;
+  padding: 0 20px !important;
+  font-size: 18px !important;
+  border: 2px solid #b59b63 !important;
+  border-radius: 20px !important;
+  background: #ffffff !important;
+  line-height: 1.2 !important;
+}
+
+/* Safari の date 表示崩れ対策 */
+input[type="date"] {
+  -webkit-appearance: none !important;
+  appearance: none !important;
+}
+
+input[type="date"]::-webkit-date-and-time-value {
+  text-align: left !important;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 1 !important;
+}
+</style>
+<!-- date-height-fix-end -->
+
 </head>
 <body>
   <div class="container">
