@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>デジタル契約引継ぎノート</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Hiragino Sans", sans-serif;
+      background: #f4f4f4;
+      color: #111;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 32px;
+      background: #fff;
+      min-height: 100vh;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 40px;
+    }
+
+    h2 {
+      font-size: 32px;
+      margin-top: 40px;
+    }
+
+    .lead {
+      font-size: 20px;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 28px 0 36px;
+    }
+
+    .tab-button {
+      border: none;
+      background: #ddd;
+      color: #fff;
+      padding: 18px 26px;
+      border-radius: 8px;
+      font-size: 20px;
+      font-weight: 700;
+      cursor: pointer;
+      min-width: 150px;
+    }
+
+    .tab-button.active {
+      background: #43ad4f;
+    }
+
+    .tab-pane {
+      display: none;
+    }
+
+    .tab-pane.active {
+      display: block;
+    }
+
+    .dashboard-next {
+      background: #f7f7f7;
+      border-radius: 14px;
+      padding: 24px 28px;
+      margin: 24px 0 32px;
+    }
+
+    .dashboard-cards {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .dashboard-card {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 14px;
+      padding: 22px 16px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      min-height: 150px;
+    }
+
+    .dashboard-card h3 {
+      font-size: 18px;
+      margin: 0 0 14px;
+      line-height: 1.4;
+    }
+
+    .dashboard-value {
+      font-size: 34px;
+      font-weight: 800;
+      margin: 12px 0;
+    }
+
+    .dashboard-caption {
+      color: #666;
+      font-size: 14px;
+      margin: 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 24px;
+      background: #fff;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 16px;
+      text-align: left;
+    }
+
+    th {
+      background: #fafafa;
+      font-weight: 800;
+    }
+
+    input {
+      width: 100%;
+      max-width: 420px;
+      padding: 14px;
+      font-size: 18px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      display: block;
+      margin: 8px 0 18px;
+    }
+
+    .button {
+      background: #43ad4f;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 14px 24px;
+      font-size: 18px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .open-data-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+      margin-top: 28px;
+    }
+
+    .open-data-card {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 14px;
+      padding: 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .green {
+      color: #43ad4f;
+      font-weight: 800;
+    }
+
+    .contact-box {
+      background: #f7f7f7;
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 18px;
+    }
+
+    .phone {
+      font-size: 32px;
+      font-weight: 900;
+      margin: 8px 0;
+    }
+
+    @media (max-width: 1000px) {
+      .dashboard-cards,
+      .open-data-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 18px;
+      }
+
+      h1 {
+        font-size: 30px;
+      }
+
+      .dashboard-cards,
+      .open-data-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .tab-button {
+        width: 100%;
+      }
+    }
+  
+/* register form update */
+.form-note {
+  background: #f7f7f7;
+  border-radius: 14px;
+  padding: 20px 24px;
+  margin: 20px 0 28px;
+}
+
+select,
+textarea {
+  width: 100%;
+  max-width: 520px;
+  padding: 14px;
+  font-size: 18px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  display: block;
+  margin: 8px 0 18px;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+textarea {
+  min-height: 110px;
+}
+
+.input-warning {
+  color: #666;
+  font-size: 14px;
+  margin-top: -10px;
+  margin-bottom: 18px;
+}
+
+
+/* register action update */
+.register-message {
+  margin-top: 16px;
+  font-weight: 700;
+  color: #43ad4f;
+}
+
+.register-message.error {
+  color: #c0392b;
+}
+
+
+/* diagnosis update */
+.diagnosis-summary {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin: 24px 0 32px;
+}
+
+.diagnosis-summary > div,
+.diagnosis-item,
+.diagnosis-next-action {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 14px;
+  padding: 22px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.diagnosis-score {
+  font-size: 40px;
+  font-weight: 900;
+  margin: 8px 0;
+}
+
+.diagnosis-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin: 18px 0 32px;
+}
+
+.diagnosis-item h4 {
+  font-size: 22px;
+  margin: 0 0 8px;
+}
+
+.diagnosis-badge {
+  display: inline-block;
+  background: #fff3cd;
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: 700;
+  margin: 4px 6px 8px 0;
+}
+
+.diagnosis-item p {
+  margin: 8px 0;
+}
+
+.diagnosis-next-action {
+  background: #f7f7f7;
+}
+
+@media (max-width: 900px) {
+  .diagnosis-summary,
+  .diagnosis-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* diagnosis priority update */
+.diagnosis-section-title {
+  grid-column: 1 / -1;
+  margin: 10px 0 0;
+  font-size: 24px;
+}
+
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>デジタル契約引継ぎノート</h1>
+    <p class="lead">日常は契約備忘録、将来は家族への引継ぎ</p>
+
+    <div class="tabs">
+      <button class="tab-button active" data-tab="dashboard">ダッシュボード</button>
+      <button class="tab-button" data-tab="contracts">契約一覧</button>
+      <button class="tab-button" data-tab="register">契約登録</button>
+      <button class="tab-button" data-tab="diagnosis">引継ぎ診断</button>
+      <button class="tab-button" data-tab="opendata">オープンデータ</button>
+      <button class="tab-button" data-tab="preview">共有プレビュー</button>
+    </div>
+
+    <section class="tab-pane active" id="dashboard">
+      <h2>ダッシュボード</h2>
+
+      <div class="dashboard-next">
+        <h3>次に確認すること</h3>
+        <ul>
+          <li>契約書の整理</li>
+          <li>連絡先の確認</li>
+          <li>自動更新設定の見直し</li>
+        </ul>
+      </div>
+
+      <div class="dashboard-cards">
+        <div class="dashboard-card">
+          <h3>総契約数</h3>
+          <div class="dashboard-value">6</div>
+          <p class="dashboard-caption">すべての契約</p>
+        </div>
+        <div class="dashboard-card">
+          <h3>引継ぎ準備度</h3>
+          <div class="dashboard-value">65%</div>
+          <p class="dashboard-caption">家族への引継ぎ準備</p>
+        </div>
+        <div class="dashboard-card">
+          <h3>家族が把握していない契約</h3>
+          <div class="dashboard-value">3件</div>
+          <p class="dashboard-caption">引継ぎが必要な契約</p>
+        </div>
+        <div class="dashboard-card">
+          <h3>自動更新あり</h3>
+          <div class="dashboard-value">5件</div>
+          <p class="dashboard-caption">自動更新設定の確認</p>
+        </div>
+        <div class="dashboard-card">
+          <h3>今月支払い予定</h3>
+          <div class="dashboard-value">15,000円</div>
+          <p class="dashboard-caption">今月の支払い合計</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="tab-pane" id="contracts">
+      <h2>契約一覧</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>契約名</th>
+            <th>カテゴリ</th>
+            <th>次回支払日</th>
+            <th>自動更新</th>
+            <th>支払元の目印</th>
+            <th>引継ぎ状況</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>サプリメント定期便</td><td>健康</td><td>2023/09/15</td><td>あり</td><td>Amazon</td><td>未確認</td></tr>
+          <tr><td>動画配信サービス</td><td>エンタメ</td><td>2023/09/20</td><td>あり</td><td>Netflix</td><td>確認済み</td></tr>
+          <tr><td>スマートフォン契約</td><td>通信</td><td>2023/09/25</td><td>なし</td><td>KDDI</td><td>未確認</td></tr>
+          <tr><td>クラウド写真保存</td><td>データ</td><td>2023/09/10</td><td>あり</td><td>Google Drive</td><td>確認済み</td></tr>
+          <tr><td>ウォーターサーバー</td><td>生活</td><td>2023/09/18</td><td>あり</td><td>ウォーターサーバー</td><td>未確認</td></tr>
+          <tr><td>電気・ガス契約</td><td>住宅</td><td>2023/09/30</td><td>あり</td><td>東京電力</td><td>確認済み</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="tab-pane" id="register">
+      <h2>契約登録</h2>
+      <p>パスワード、口座番号、カード番号、暗証番号は入力・保存しないでください。</p>
+
+      <div class="form-note">
+        <h3>家族があとで困らないために残す情報</h3>
+        <p>金額や支払日だけでなく、解約方法・問い合わせ先・家族に共有するかを記録します。</p>
+      </div>
+
+      <label>契約名</label>
+      <input id="contract-name" type="text" placeholder="例：サプリメント定期便">
+
+      <label>カテゴリ</label>
+      <select id="contract-category">
+        <option>健康・サプリ</option>
+        <option>動画・音楽配信</option>
+        <option>通信・スマートフォン</option>
+        <option>電気・ガス・水道</option>
+        <option>クラウド・データ保存</option>
+        <option>通販・定期購入</option>
+        <option>保険・住宅</option>
+        <option>その他</option>
+      </select>
+
+      <label>次回支払日</label>
+      <input id="contract-next-payment" type="date">
+
+      <label>支払金額の目安</label>
+      <input id="contract-amount" type="text" placeholder="例：3,000円 / 月">
+
+      <label>自動更新</label>
+      <select id="contract-auto-renew">
+        <option>あり</option>
+        <option>なし</option>
+        <option>不明</option>
+      </select>
+
+      <label>支払元の目印</label>
+      <input id="contract-payment-note" type="text" placeholder="例：Amazon、KDDI、東京電力">
+      <p class="input-warning">口座番号・カード番号・暗証番号は入力しないでください。</p>
+
+      <label>問い合わせ先</label>
+      <input id="contract-contact" type="text" placeholder="例：会社名、電話番号、問い合わせページ名">
+
+      <label>解約方法</label>
+      <select id="contract-cancel-method">
+        <option>アプリ・Webで解約</option>
+        <option>電話で解約</option>
+        <option>店舗・窓口で解約</option>
+        <option>契約書を確認する必要あり</option>
+        <option>不明</option>
+      </select>
+
+      <label>家族に共有するか</label>
+      <select id="contract-share">
+        <option>共有する</option>
+        <option>まだ共有しない</option>
+        <option>確認してから決める</option>
+      </select>
+
+      <label>メモ</label>
+      <textarea id="contract-memo" placeholder="例：契約書はリビングのファイルに保管。解約は電話のみ。"></textarea>
+
+      <button class="button" id="register-button" type="button">登録</button>
+
+      <p id="register-message" class="register-message"></p>
+    </section>
+
+    <section class="tab-pane" id="diagnosis">
+      <h2>引継ぎ診断</h2>
+
+      <div class="diagnosis-summary">
+        <div>
+          <h3>引継ぎ準備度</h3>
+          <div class="diagnosis-score" id="diagnosis-readiness">50%</div>
+          <p>家族が契約を把握できる状態にどれだけ近いかを表示します。</p>
+        </div>
+
+        <div>
+          <h3>優先確認が必要な契約</h3>
+          <div class="diagnosis-score" id="diagnosis-risk-count">3件</div>
+          <p>家族が未確認で、自動更新がある契約を優先して確認します。</p>
+        </div>
+      </div>
+
+      <div id="diagnosis-list" class="diagnosis-list"></div>
+
+      <div class="diagnosis-next-action">
+        <h3>次にやること</h3>
+        <ol>
+          <li>自動更新の契約を確認する</li>
+          <li>問い合わせ先・解約方法を記録する</li>
+          <li>家族に共有する契約を選ぶ</li>
+          <li>困った場合はオープンデータの相談ナビを確認する</li>
+        </ol>
+        <button class="button" data-tab-jump="opendata" type="button">相談ナビを見る</button>
+      </div>
+    </section>
+
+    <section class="tab-pane" id="opendata">
+      <h2>困ったときの相談ナビ</h2>
+      <p>「解約できない」「請求が続いている」「親の契約が分からない」など、困りごとに近いカードから次の行動を確認できます。</p>
+
+      <div class="open-data-grid">
+        <div class="open-data-card">
+          <h3>解約できない・請求が続く</h3>
+          <p class="green">定期購入、通販、サブスクで困ったとき</p>
+          <ol>
+            <li>契約一覧で支払日を確認</li>
+            <li>解約方法と問い合わせ先を確認</li>
+            <li>解決しない場合は相談窓口へ</li>
+          </ol>
+          <div class="contact-box">
+            <strong>東京都消費生活総合センター</strong>
+            <div class="phone">03-3235-1155</div>
+            <a class="button" href="https://www.shouhiseikatu.metro.tokyo.lg.jp/sodan/sodan.html" target="_blank">相談窓口案内を見る</a>
+          </div>
+        </div>
+
+        <div class="open-data-card">
+          <h3>近くの相談窓口を探したい</h3>
+          <p class="green">区市町村の窓口を確認したいとき</p>
+          <ol>
+            <li>住んでいる区市町村を確認</li>
+            <li>近くの相談窓口を探す</li>
+            <li>電話または窓口で相談する</li>
+          </ol>
+          <div class="contact-box">
+            <strong>東京都内の消費生活相談窓口</strong><br>
+            <a class="button" href="https://www.shouhiseikatu.metro.tokyo.lg.jp/sodan/sodan.html" target="_blank">相談窓口を見る</a>
+          </div>
+        </div>
+
+        <div class="open-data-card">
+          <h3>親や家族の契約が分からない</h3>
+          <p class="green">本人以外が契約を把握できないとき</p>
+          <ol>
+            <li>自動更新の契約を確認</li>
+            <li>家族が困りそうな契約を選ぶ</li>
+            <li>共有プレビューで一覧を確認する</li>
+          </ol>
+          <button class="button" data-tab-jump="preview">共有プレビューを確認する</button>
+        </div>
+
+        <div class="open-data-card">
+          <h3>家族だけでは整理が難しい</h3>
+          <p class="green">高齢者本人だけでは手続きが進まないとき</p>
+          <ol>
+            <li>困っている内容を整理</li>
+            <li>家族で対応できるか確認</li>
+            <li>必要なら地域の支援窓口へ</li>
+          </ol>
+          <a class="button" href="https://www.fukushi.metro.tokyo.lg.jp/" target="_blank">支援情報を見る</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="tab-pane" id="preview">
+      <h2>共有プレビュー</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>契約名</th>
+            <th>カテゴリ</th>
+            <th>次回支払日</th>
+            <th>自動更新</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>サプリメント定期便</td><td>健康</td><td>2023/09/15</td><td>あり</td></tr>
+          <tr><td>動画配信サービス</td><td>エンタメ</td><td>2023/09/20</td><td>あり</td></tr>
+          <tr><td>スマートフォン契約</td><td>通信</td><td>2023/09/25</td><td>なし</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+
+  <script>
+    const contracts = [
+      { name: 'サプリメント定期便', category: '健康', nextPayment: '2023/09/15', autoRenew: 'あり', paymentNote: 'Amazon', status: '未確認', share: '共有する', amount: '3,000円' },
+      { name: '動画配信サービス', category: 'エンタメ', nextPayment: '2023/09/20', autoRenew: 'あり', paymentNote: 'Netflix', status: '確認済み', share: '共有する', amount: '1,500円' },
+      { name: 'スマートフォン契約', category: '通信', nextPayment: '2023/09/25', autoRenew: 'なし', paymentNote: 'KDDI', status: '未確認', share: '確認してから決める', amount: '7,000円' },
+      { name: 'クラウド写真保存', category: 'データ', nextPayment: '2023/09/10', autoRenew: 'あり', paymentNote: 'Google Drive', status: '確認済み', share: 'まだ共有しない', amount: '300円' },
+      { name: 'ウォーターサーバー', category: '生活', nextPayment: '2023/09/18', autoRenew: 'あり', paymentNote: 'ウォーターサーバー', status: '未確認', share: '共有する', amount: '3,500円' },
+      { name: '電気・ガス契約', category: '住宅', nextPayment: '2023/09/30', autoRenew: 'あり', paymentNote: '東京電力', status: '確認済み', share: '共有する', amount: '15,000円' }
+    ];
+
+    function showTab(tabName) {
+      document.querySelectorAll('.tab-button').forEach(button => {
+        button.classList.toggle('active', button.dataset.tab === tabName);
+      });
+
+      document.querySelectorAll('.tab-pane').forEach(pane => {
+        pane.classList.toggle('active', pane.id === tabName);
+      });
+    }
+
+    function yenToNumber(text) {
+      if (!text) return 0;
+      const n = String(text).replace(/[円,\s]/g, '').match(/\d+/);
+      return n ? Number(n[0]) : 0;
+    }
+
+    function formatYen(value) {
+      return value.toLocaleString('ja-JP') + '円';
+    }
+
+    function formatDate(value) {
+      if (!value) return '未入力';
+      return value.replaceAll('-', '/');
+    }
+
+    function normalizeCategory(category) {
+      if (category.includes('健康')) return '健康';
+      if (category.includes('動画')) return 'エンタメ';
+      if (category.includes('通信')) return '通信';
+      if (category.includes('電気')) return '住宅';
+      if (category.includes('クラウド')) return 'データ';
+      if (category.includes('通販')) return '通販';
+      if (category.includes('保険')) return '保険';
+      return category;
+    }
+
+    function renderTables() {
+      const contractBody = document.querySelector('#contracts tbody');
+      if (contractBody) {
+        contractBody.innerHTML = '';
+        contracts.forEach(contract => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td>${contract.name}</td>
+            <td>${contract.category}</td>
+            <td>${contract.nextPayment}</td>
+            <td>${contract.autoRenew}</td>
+            <td>${contract.paymentNote || '未入力'}</td>
+            <td>${contract.status}</td>
+          `;
+          contractBody.appendChild(tr);
+        });
+      }
+
+      const previewBody = document.querySelector('#preview tbody');
+      if (previewBody) {
+        previewBody.innerHTML = '';
+        contracts
+          .filter(contract => contract.share === '共有する')
+          .slice(0, 5)
+          .forEach(contract => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+              <td>${contract.name}</td>
+              <td>${contract.category}</td>
+              <td>${contract.nextPayment}</td>
+              <td>${contract.autoRenew}</td>
+            `;
+            previewBody.appendChild(tr);
+          });
+      }
+    }
+
+    function setDashboardValue(title, value) {
+      const cards = document.querySelectorAll('.dashboard-card');
+      cards.forEach(card => {
+        const h3 = card.querySelector('h3');
+        const valueEl = card.querySelector('.dashboard-value');
+        if (h3 && valueEl && h3.textContent.trim() === title) {
+          valueEl.textContent = value;
+        }
+      });
+    }
+
+    function updateDashboard() {
+      const total = contracts.length;
+      const autoRenewals = contracts.filter(c => c.autoRenew === 'あり').length;
+      const unaware = contracts.filter(c => c.status === '未確認').length;
+      const monthlyTotal = contracts.reduce((sum, c) => sum + yenToNumber(c.amount), 0);
+
+      const readiness = total === 0 ? 0 : Math.round(((total - unaware) / total) * 100);
+
+      setDashboardValue('総契約数', String(total));
+      setDashboardValue('引継ぎ準備度', readiness + '%');
+      setDashboardValue('家族が把握していない契約', unaware + '件');
+      setDashboardValue('自動更新あり', autoRenewals + '件');
+      setDashboardValue('今月支払い予定', formatYen(monthlyTotal));
+    }
+
+    function clearRegisterForm() {
+      document.getElementById('contract-name').value = '';
+      document.getElementById('contract-next-payment').value = '';
+      document.getElementById('contract-amount').value = '';
+      document.getElementById('contract-payment-note').value = '';
+      document.getElementById('contract-contact').value = '';
+      document.getElementById('contract-memo').value = '';
+      document.getElementById('contract-category').selectedIndex = 0;
+      document.getElementById('contract-auto-renew').selectedIndex = 0;
+      document.getElementById('contract-cancel-method').selectedIndex = 0;
+      document.getElementById('contract-share').selectedIndex = 0;
+    }
+
+    function registerContract() {
+      const name = document.getElementById('contract-name').value.trim();
+      const category = document.getElementById('contract-category').value;
+      const nextPayment = document.getElementById('contract-next-payment').value;
+      const amount = document.getElementById('contract-amount').value.trim();
+      const autoRenew = document.getElementById('contract-auto-renew').value;
+      const paymentNote = document.getElementById('contract-payment-note').value.trim();
+      const contact = document.getElementById('contract-contact').value.trim();
+      const cancelMethod = document.getElementById('contract-cancel-method').value;
+      const share = document.getElementById('contract-share').value;
+      const memo = document.getElementById('contract-memo').value.trim();
+      const message = document.getElementById('register-message');
+
+      if (!name) {
+        message.textContent = '契約名を入力してください。';
+        message.classList.add('error');
+        return;
+      }
+
+      contracts.push({
+        name,
+        category: normalizeCategory(category),
+        nextPayment: formatDate(nextPayment),
+        autoRenew,
+        paymentNote: paymentNote || '未入力',
+        status: share === '共有する' ? '確認済み' : '未確認',
+        share,
+        amount,
+        contact,
+        cancelMethod,
+        memo
+      });
+
+      renderTables();
+      updateDashboard();
+      updateDiagnosis();
+      clearRegisterForm();
+
+      message.textContent = '契約を登録しました。契約一覧とダッシュボードに反映しました。';
+      message.classList.remove('error');
+
+      showTab('contracts');
+    }
+
+    document.querySelectorAll('.tab-button').forEach(button => {
+      button.addEventListener('click', () => showTab(button.dataset.tab));
+    });
+
+    document.querySelectorAll('[data-tab-jump]').forEach(button => {
+      button.addEventListener('click', () => showTab(button.dataset.tabJump));
+    });
+
+    const registerButton = document.getElementById('register-button');
+    if (registerButton) {
+      registerButton.addEventListener('click', registerContract);
+    }
+
+    function updateDiagnosis() {
+      const priorityContracts = contracts.filter(contract => {
+        return contract.status === '未確認' && contract.autoRenew === 'あり';
+      });
+
+      const recommendedContracts = contracts.filter(contract => {
+        return !(contract.status === '未確認' && contract.autoRenew === 'あり') &&
+               (contract.autoRenew === 'あり' || contract.cancelMethod === '不明');
+      });
+
+      const total = contracts.length;
+      const unaware = contracts.filter(c => c.status === '未確認').length;
+      const readiness = total === 0 ? 0 : Math.round(((total - unaware) / total) * 100);
+
+      const readinessEl = document.getElementById('diagnosis-readiness');
+      const riskCountEl = document.getElementById('diagnosis-risk-count');
+      const listEl = document.getElementById('diagnosis-list');
+
+      if (readinessEl) readinessEl.textContent = readiness + '%';
+      if (riskCountEl) riskCountEl.textContent = priorityContracts.length + '件';
+
+      if (listEl) {
+        listEl.innerHTML = '';
+
+        const makeCard = (contract, levelText) => {
+          const reasons = [];
+
+          if (contract.status === '未確認') reasons.push('家族が未確認');
+          if (contract.autoRenew === 'あり') reasons.push('自動更新あり');
+          if (contract.cancelMethod === '不明') reasons.push('解約方法不明');
+          if (!contract.paymentNote || contract.paymentNote === '未入力') reasons.push('支払元が未入力');
+
+          const div = document.createElement('div');
+          div.className = 'diagnosis-item';
+          div.innerHTML = `
+            <h4>${contract.name}</h4>
+            <p><strong>区分：</strong>${levelText}</p>
+            <p><strong>カテゴリ：</strong>${contract.category}</p>
+            <p><strong>次回支払日：</strong>${contract.nextPayment}</p>
+            <p><strong>確認理由：</strong></p>
+            <div>${reasons.map(reason => `<span class="diagnosis-badge">${reason}</span>`).join('')}</div>
+            <p><strong>次の行動：</strong>問い合わせ先・解約方法・家族共有の有無を確認してください。</p>
+          `;
+          return div;
+        };
+
+        const priorityTitle = document.createElement('h3');
+        priorityTitle.textContent = '優先して確認する契約';
+        priorityTitle.className = 'diagnosis-section-title';
+        listEl.appendChild(priorityTitle);
+
+        if (priorityContracts.length === 0) {
+          const p = document.createElement('p');
+          p.textContent = '優先して確認する契約はありません。';
+          listEl.appendChild(p);
+        } else {
+          priorityContracts.forEach(contract => {
+            listEl.appendChild(makeCard(contract, '優先確認'));
+          });
+        }
+
+        const recommendedTitle = document.createElement('h3');
+        recommendedTitle.textContent = '確認しておくと安心な契約';
+        recommendedTitle.className = 'diagnosis-section-title';
+        listEl.appendChild(recommendedTitle);
+
+        if (recommendedContracts.length === 0) {
+          const p = document.createElement('p');
+          p.textContent = '確認推奨の契約はありません。';
+          listEl.appendChild(p);
+        } else {
+          recommendedContracts.forEach(contract => {
+            listEl.appendChild(makeCard(contract, '確認推奨'));
+          });
+        }
+      }
+    }
+
+    renderTables();
+    updateDashboard();
+    updateDiagnosis();
+  </script>
+</body>
+</html>
