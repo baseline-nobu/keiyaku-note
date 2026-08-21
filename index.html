@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .tab { display: inline-block; padding: 10px; cursor: pointer; }
+    .tab.active { background: #4CAF50; color: white; }
+    .dashboard { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+    .card { padding: 20px; border: 1px solid #ccc; }
+  </style>
+</head>
+<body>
+  <div class="tabs">
+    <div class="tab active">Tab 1</div>
+    <div class="tab">Tab 2</div>
+  </div>
+  <div class="dashboard">
+    <div class="card">Metric 1</div>
+    <div class="card">Metric 2</div>
+    <div class="card">Metric 3</div>
+    <div class="card">Metric 4</div>
+    <div class="card">Metric 5</div>
+  </div>
+  <div id="share-preview">
+    <div>Item 1</div>
+    <div>Item 2</div>
+    <div>Item 1</div>
+  </div>
+  <script>
+    // Tab switching
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+      });
+    });
+
+    // Remove duplicates from share preview
+    const items = Array.from(document.querySelectorAll('#share-preview div'));
+    const unique = [...new Set(items.map(i => i.textContent))].map(text => {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div;
+    });
+    document.getElementById('share-preview').innerHTML = '';
+    unique.forEach(div => document.getElementById('share-preview').appendChild(div));
+  </script>
+</body>
+</html>

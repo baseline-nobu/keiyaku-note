@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>デジタル契約引継ぎノート</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>デジタル契約引継ぎノート</h1>
+      <p class="subtitle">日常は契約備忘録、将来は家族への引継ぎ</p>
+    
+    <div class="tab-buttons">
+      <button class="tab-btn active" data-tab="dashboard">ダッシュボード</button>
+      <button class="tab-btn" data-tab="contracts">契約一覧</button>
+      <button class="tab-btn" data-tab="register">契約登録</button>
+      <button class="tab-btn" data-tab="diagnosis">引継ぎ診断</button>
+      <button class="tab-btn" data-tab="open-data">オープンデータ</button>
+      <button class="tab-btn" data-tab="preview">共有プレビュー</button>
+    </div>
+    
+    <div class="tab-content">
+      <div class="tab-pane active" id="dashboard">
+        <h2>ダッシュボード</h2>
+        <div class="dashboard-cards">
+        
+
+        
+        <!-- Next Steps Section -->
+        <div class="dashboard-cards grid-dashboard">
+          <div class="dashboard-card" id="dashboard-card-1"></div>
+          <div class="dashboard-card" id="dashboard-card-2"></div>
+          <div class="dashboard-card" id="dashboard-card-3"></div>
+          <div class="dashboard-card" id="dashboard-card-4"></div>
+          <div class="dashboard-card" id="dashboard-card-5"></div>
+        </div>
+        <div class="next-steps">
+          <h3>次に確認すること</h3>
+          <ul id="next-checks">
+            <li>契約書の整理</li>
+            <li>連絡先の確認</li>
+            <li>自動更新設定の見直し</li>
+          </ul>
+        </div>
+          <div class="dashboard-card">
+          <div class="dashboard-label">{{label}}</div>
+          <div class="dashboard-value" id="{{id}}"></div>
+          <div class="dashboard-caption">{{caption}}</div>
+        </div>
+          <div class="dashboard-label">{{label}}</div>
+          <div class="dashboard-value" id="{{id}}"></div>
+          <div class="dashboard-caption">{{caption}}</div>
+        </div>
+          <div class="dashboard-label">{{label}}</div>
+          <div class="dashboard-value" id="{{id}}"></div>
+          <div class="dashboard-caption">{{caption}}</div>
+        </div>
+          <div class="dashboard-label">{{label}}</div>
+          <div class="dashboard-value" id="{{id}}"></div>
+          <div class="dashboard-caption">{{caption}}</div>
+        </div>
+          <div class="dashboard-label">{{label}}</div>
+          <div class="dashboard-value" id="{{id}}"></div>
+          <div class="dashboard-caption">{{caption}}</div>
+        </div>
+          <div class="dashboard-label">{{label}}</div>
+          <div class="dashboard-value" id="{{id}}"></div>
+          <div class="dashboard-caption">{{caption}}</div>
+        </div>
+          <div class="dashboard-label">{{label}}</div>
+          <div class="dashboard-value" id="{{id}}"></div>
+          <div class="dashboard-caption">{{caption}}</div>
+        </div>
+          <div class="dashboard-label">{{label}}</div>
+          <div class="dashboard-value" id="{{id}}"></div>
+          <div class="dashboard-caption">{{caption}}</div>
+        </div>
+            <h3>総契約数</h3>
+            <div class="dashboard-value">0</div>
+            <div class="dashboard-caption">すべての契約</div>
+          </div>
+          <div class="dashboard-card">
+          <div class="dashboard-label">{{label}}</div>
+          <div class="dashboard-value" id="{{id}}"></div>
+          <div class="dashboard-caption">{{caption}}</div>
+        </div>
+          <div class="dashboard-label">{{label}}</div>
+          <div class="dashboard-value" id="{{id}}"></div>
+          <div class="dashboard-caption">{{caption}}</div>
+        </div>
+          <div class="dashboard-label">{{label}}</div>
+          <div class="dashboard-value" id="{{id}}"></div>
+          <div class="dashboard-caption">{{caption}}</div>
+        </div>
+          <div class="dashboard-label">{{label}}</div>
+          <div class="dashboard-value" id="{{id}}"></div>
+          <div class="dashboard-caption">{{caption}}</div>
+        </div>
+          <div class="dashboard-label">{{label}}</div>
+          <div class="dashboard-value" id="{{id}}"></div>
+          <div class="dashboard-caption">{{caption}}</div>
+        </div>
+          <div class="dashboard-label">{{label}}</div>
+          <div class="dashboard-value" id="{{id}}"></div>
+          <div class="dashboard-caption">{{caption}}</div>
+        </div>
+          <div class="dashboard-label">{{label}}</div>
+          <div class="dashboard-value" id="{{id}}"></div>
+          <div class="dashboard-caption">{{caption}}</div>
+        </div>
+          <div class="dashboard-label">{{label}}</div>
+          <div class="dashboard-value" id="{{id}}"></div>
+          <div class="dashboard-caption">{{caption}}</div>
+        </div>
+            <h3>引継ぎ準備度</h3>
+            <div class="dashboard-value">65%</div>
+            <div class="dashboard-caption">家族への引継ぎ準備</div>
+          </div>
+          <div class="dashboard-card">
+          <div class="dashboard-label">{{label}}</div>
+          <div class="dashboard-value" id="{{id}}"></div>
+          <div class="dashboard-caption">{{caption}}</div>
+        </div>
+          <div class="dashboard-label">{{label}}</div>
+          <div class="dashboard-value" id="{{id}}"></div>
+          <div class="dashboard-caption">{{caption}}</div>
+        </div>
+          <div class="dashboard-label">{{label}}</div>
+          <div class="dashboard-value" id="{{id}}"></div>
+          <div class="dashboard-caption">{{caption}}</div>
+        </div>
+          <div class="dashboard-label">{{label}}</div>
+          <div class="dashboard-value" id="{{id}}"></div>
+          <div class="dashboard-caption">{{caption}}</div>
+        </div>
+          <div class="dashboard-label">{{label}}</div>
+          <div class="dashboard-value" id="{{id}}"></div>
+          <div class="dashboard-caption">{{caption}}</div>
+        </div>
+          <div class="dashboard-label">{{label}}</div>
+          <div class="dashboard-value" id="{{id}}"></div>
+          <div class="dashboard-caption">{{caption}}</div>
+        </div>
+          <div class="dashboard-label">{{label}}</div>
+          <div class="dashboard-value" id="{{id}}"></div>
+          <div class="dashboard-caption">{{caption}}</div>
+        </div>
+          <div class="dashboard-label">{{label}}</div>
+          <div class="dashboard-value" id="{{id}}"></div>
+          <div class="dashboard-caption">{{caption}}</div>
+        </div>
+            <h3>家族が把握していない契約</h3>
+            <div class="dashboard-value">0件</div>
+            <div class="dashboard-caption">引継ぎが必要な契約</div>
+          </div>
+          <div class="dashboard-card">
+          <div class="dashboard-label">{{label}}</div>
+          <div class="dashboard-value" id="{{id}}"></div>
+          <div class="dashboard-caption">{{caption}}</div>
+        </div>
+          <div class="dashboard-label">{{label}}</div>
+          <div class="dashboard-value" id="{{id}}"></div>
+          <div class="dashboard-caption">{{caption}}</div>
+        </div>
+          <div class="dashboard-label">{{label}}</div>
+          <div class="dashboard-value" id="{{id}}"></div>
+          <div class="dashboard-caption">{{caption}}</div>
+        </div>
+          <div class="dashboard-label">{{label}}</div>
+          <div class="dashboard-value" id="{{id}}"></div>
+          <div class="dashboard-caption">{{caption}}</div>
+        </div>
+          <div class="dashboard-label">{{label}}</div>
+          <div class="dashboard-value" id="{{id}}"></div>
+          <div class="dashboard-caption">{{caption}}</div>
+        </div>
+          <div class="dashboard-label">{{label}}</div>
+          <div class="dashboard-value" id="{{id}}"></div>
+          <div class="dashboard-caption">{{caption}}</div>
+        </div>
+          <div class="dashboard-label">{{label}}</div>
+          <div class="dashboard-value" id="{{id}}"></div>
+          <div class="dashboard-caption">{{caption}}</div>
+        </div>
+          <div class="dashboard-label">{{label}}</div>
+          <div class="dashboard-value" id="{{id}}"></div>
+          <div class="dashboard-caption">{{caption}}</div>
+        </div>
+            <h3>自動更新あり</h3>
+            <div class="dashboard-value">0件</div>
+            <div class="dashboard-caption">自動更新設定の確認</div>
+          </div>
+          <div class="dashboard-card">
+          <div class="dashboard-label">{{label}}</div>
+          <div class="dashboard-value" id="{{id}}"></div>
+          <div class="dashboard-caption">{{caption}}</div>
+        </div>
+          <div class="dashboard-label">{{label}}</div>
+          <div class="dashboard-value" id="{{id}}"></div>
+          <div class="dashboard-caption">{{caption}}</div>
+        </div>
+          <div class="dashboard-label">{{label}}</div>
+          <div class="dashboard-value" id="{{id}}"></div>
+          <div class="dashboard-caption">{{caption}}</div>
+        </div>
+          <div class="dashboard-label">{{label}}</div>
+          <div class="dashboard-value" id="{{id}}"></div>
+          <div class="dashboard-caption">{{caption}}</div>
+        </div>
+          <div class="dashboard-label">{{label}}</div>
+          <div class="dashboard-value" id="{{id}}"></div>
+          <div class="dashboard-caption">{{caption}}</div>
+        </div>
+          <div class="dashboard-label">{{label}}</div>
+          <div class="dashboard-value" id="{{id}}"></div>
+          <div class="dashboard-caption">{{caption}}</div>
+        </div>
+          <div class="dashboard-label">{{label}}</div>
+          <div class="dashboard-value" id="{{id}}"></div>
+          <div class="dashboard-caption">{{caption}}</div>
+        </div>
+          <div class="dashboard-label">{{label}}</div>
+          <div class="dashboard-value" id="{{id}}"></div>
+          <div class="dashboard-caption">{{caption}}</div>
+        </div>
+            <h3>今月支払い予定</h3>
+            <div class="dashboard-value">15,000円</div>
+            <div class="dashboard-caption">今月の支払い合計</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="tab-pane" id="contracts">
+        <h2>契約一覧</h2>
+        <p>ダミー契約データが表示されます</p>
+        <h2>契約一覧</h2>
+        <table id="contracts-table">
+          <thead>
+            <tr>
+<th>契約名</th>
+          <th>カテゴリ</th>
+          <th>次回支払日</th>
+          <th>自動更新</th>
+          <th>支払元の目印</th>
+          <th>引継ぎ状況</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- 契約データがここに表示されます -->
+          </tbody>
+        </table>
+      </div>
+      
+      <div class="tab-pane" id="register">
+        <h2>契約登録</h2>
+        <p>パスワード、口座番号、カード番号、暗証番号は入力・保存しないでください。</p>
+        <h2>契約登録フォーム</h2>
+        <form id="contract-form">
+          <label>契約名:<br>
+            <input type="text" name="name" required>
+          </label>
+          <label>期間:<br>
+            <input type="text" name="period" required>
+          </label>
+          <label>支払い元:<br>
+            <input type="text" name="payment-source" required>
+          </label>
+          <button type="submit">登録</button>
+        </form>
+      </div>
+      
+  <div class="tab-pane" id="diagnosis">
+      <h2>引継ぎ診断</h2>
+      <p>情報不足の契約: <span id="incomplete-contracts">0件</span></p>
+      <p>改善ポイント: <span id="improvement-points">-</span></p>
+    </div>
+      
+      <div class="tab-pane" id="open-data">
+  <section class="help-nav-intro">
+    <h2>困ったときの相談ナビ</h2>
+    <p>「解約できない」「請求が続いている」「親の契約が分からない」など、困りごとに近いカードから次の行動を確認できます。</p>
+  </section>
+
+  <div class="help-card-grid">
+
+    <div class="help-card">
+      <h3>解約できない・請求が続く</h3>
+      <p class="help-card-subtitle">定期購入、通販、サブスクで困ったとき</p>
+      <p>まずは契約一覧で、支払日・解約方法・問い合わせ先を確認しましょう。解決しない場合は、消費生活相談につなげます。</p>
+      <ol>
+        <li>契約一覧で支払日を確認</li>
+        <li>解約方法と問い合わせ先を確認</li>
+        <li>解決しない場合は相談窓口へ</li>
+      </ol>
+      <div class="help-contact-box">
+        <strong>東京都消費生活総合センター</strong>
+        <div class="help-phone">03-3235-1155</div>
+        <a class="help-link-button" href="https://www.shouhiseikatu.metro.tokyo.lg.jp/center/madoguchi/" target="_blank" rel="noopener noreferrer">相談窓口案内を見る</a>
+      </div>
+    </div>
+
+    <div class="help-card">
+      <h3>近くの相談窓口を探したい</h3>
+      <p class="help-card-subtitle">区市町村の窓口を確認したいとき</p>
+      <p>住んでいる地域によって、近くの消費生活相談窓口を確認できます。実装版では区市町村から自動表示します。</p>
+      <ol>
+        <li>住んでいる区市町村を確認</li>
+        <li>近くの相談窓口を探す</li>
+        <li>電話または窓口で相談する</li>
+      </ol>
+      <div class="help-contact-box">
+        <strong>東京都内の消費生活相談窓口</strong>
+        <a class="help-link-button" href="https://www.shouhiseikatu.metro.tokyo.lg.jp/link/mado_ku.html" target="_blank" rel="noopener noreferrer">23区の相談窓口を見る</a>
+        <a class="help-link-button" href="https://www.shouhiseikatu.metro.tokyo.lg.jp/link/mado_shi.html" target="_blank" rel="noopener noreferrer">市・町の相談窓口を見る</a>
+      </div>
+    </div>
+
+    <div class="help-card">
+      <h3>親や家族の契約が分からない</h3>
+      <p class="help-card-subtitle">本人以外が契約を把握できないとき</p>
+      <p>スマホ、サブスク、健康食品、電気・ガスなど、本人しか知らない契約は家族が気づきにくいです。</p>
+      <ol>
+        <li>自動更新の契約を確認</li>
+        <li>家族が困りそうな契約を選ぶ</li>
+        <li>共有プレビューで一覧を確認する</li>
+      </ol>
+      <div class="help-contact-box">
+        <strong>アプリ内で確認</strong>
+        <span class="help-link-button">共有プレビューを確認する</span>
+      </div>
+    </div>
+
+    <div class="help-card">
+      <h3>家族だけでは整理が難しい</h3>
+      <p class="help-card-subtitle">高齢者本人だけでは手続きが進まないとき</p>
+      <p>本人や家族だけで契約整理が難しい場合は、地域の支援先につなげることを想定します。</p>
+      <ol>
+        <li>困っている内容を整理</li>
+        <li>家族で対応できるか確認</li>
+        <li>必要なら地域の支援窓口へ</li>
+      </ol>
+      <div class="help-contact-box">
+        <strong>地域包括支援センター</strong>
+        <a class="help-link-button" href="https://www.fukushi.metro.tokyo.lg.jp/kourei/sodan/chiiki-zaitaku_center" target="_blank" rel="noopener noreferrer">地域包括支援センター一覧を見る</a>
+      </div>
+    </div>
+
+  </div>
+
+  <section class="help-data-note">
+    <h3>この画面で使う公的データ</h3>
+    <p>このプロトタイプでは代表的な相談先を表示しています。実装版では、契約カテゴリ、困りごとの種類、利用者の区市町村に応じて、東京都オープンデータから近い相談窓口を自動表示します。</p>
+    <ul>
+      <li>消費生活相談窓口一覧</li>
+      <li>地域包括支援センター一覧</li>
+      <li>区市町村ごとの相談先情報</li>
+    </ul>
+  </section>
+</div>
+        
+        <!-- ここにプロトタイプ注記を移動 -->
+        <p class="open-data-text">このアプリでは、東京都の公的情報を、課題の背景説明だけでなく、契約診断後の相談先・支援先につなげるために活用します。本人が契約を整理し、家族が必要な情報を把握し、困った時には公的な相談窓口へ進める流れを支援します。</p>
+      </div>
+      
+      <div class="tab-pane" id="preview">
+        <h2>共有プレビュー</h2>
+        <div id="preview-content">
+          <table>
+            <thead>
+              <tr>
+                <th>契約名</th>
+                <th>カテゴリ</th>
+                <th>次回支払日</th>
+                <th>自動更新</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- データがここに表示されます -->
+            </tbody>
+          </table>
+        </div>
+        </div>
+      </div>
+      
+      <!-- プロトタイプ注記 -->
+      <p class="prototype-note">このプロトタイプでは代表的な相談先を固定表示しています。実装版では、契約カテゴリ、困りごとの種類、利用者の区市町村に応じて、東京都オープンデータから該当する相談窓口を自動表示します。</p>
+  </div>
+  
+  <script src="app.js"></script>
+</body>
+</html>
