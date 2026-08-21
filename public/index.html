@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>デジタル契約引継ぎノート</title>
+  <title>デジタル契約ノート</title>
   <style>
     body {
       margin: 0;
@@ -988,10 +988,180 @@ textarea {
 }
 </style>
 
+
+<!-- mobile-title-and-layout-fix-start -->
+<style>
+/* ===== Mobile title and layout fix 2026-08-21 ===== */
+
+/* 横はみ出し防止 */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden !important;
+}
+
+/* 全体の箱がスマホ幅を超えないようにする */
+main,
+.app,
+.container,
+.page,
+.content,
+.tab-content,
+.tab-pane,
+section,
+.card,
+.panel,
+.feature-card,
+.metric-card,
+.contract-card,
+.support-card,
+.info-box {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* タイトルをスマホでも崩れにくくする */
+h1 {
+  white-space: nowrap !important;
+  word-break: keep-all !important;
+  overflow-wrap: normal !important;
+  text-align: center !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.04em !important;
+  font-size: clamp(28px, 8vw, 56px) !important;
+}
+
+/* 入力欄のはみ出し防止 */
+input,
+select,
+textarea {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* フォーム周辺 */
+form,
+.form,
+.form-group,
+.input-group,
+.field,
+.field-row,
+.register-form {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* テーブルのはみ出し対策 */
+table {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* スマホ時だけさらに調整 */
+@media (max-width: 640px) {
+  body {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  h1 {
+    font-size: clamp(30px, 9vw, 40px) !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-bottom: 24px !important;
+  }
+
+  h2 {
+    font-size: 1.55rem !important;
+  }
+
+  h3 {
+    font-size: 1.25rem !important;
+  }
+
+  /* タブは縦並びでスマホに収める */
+  .tabs,
+  .tab-nav,
+  nav {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    width: 100% !important;
+  }
+
+  .tab-button,
+  .nav-button,
+  .tabs button {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    font-size: 1.05rem !important;
+    padding: 16px 12px !important;
+  }
+
+  /* 入力欄 */
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+    padding: 14px 16px !important;
+  }
+
+  label {
+    display: block !important;
+    width: 100% !important;
+    margin-bottom: 8px !important;
+  }
+
+  /* 契約一覧テーブルは横スクロール可にする */
+  table {
+    display: block !important;
+    width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    white-space: nowrap !important;
+  }
+
+  th,
+  td {
+    white-space: nowrap !important;
+    font-size: 0.95rem !important;
+    padding: 10px 12px !important;
+  }
+
+  /* カード類はスマホでは1列 */
+  .features,
+  .feature-grid,
+  .metrics,
+  .metric-grid,
+  .dashboard-grid,
+  .cards,
+  .card-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    width: 100% !important;
+  }
+
+  .feature-card,
+  .metric-card,
+  .contract-card,
+  .support-card,
+  .data-card,
+  .card {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+</style>
+<!-- mobile-title-and-layout-fix-end -->
+
 </head>
 <body>
   <div class="container">
-    <h1>デジタル契約引継ぎノート</h1>
+    <h1>デジタル契約ノート</h1>
     <p class="lead">日常は契約備忘録、将来は家族への引継ぎ</p>
 
     <div class="tabs">
