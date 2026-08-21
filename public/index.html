@@ -383,6 +383,611 @@ textarea {
 }
 
 </style>
+
+<style>
+/* ===== Soft orange visible override 2026-08-21 ===== */
+
+body {
+  background: #fff4e6 !important;
+  color: #111111 !important;
+}
+
+main,
+.app,
+.container,
+.page,
+.content,
+.tab-content {
+  background: transparent !important;
+}
+
+.card,
+.panel,
+.section-card,
+.feature-card,
+.feature-box,
+.metric-card,
+.summary-card,
+.todo-card,
+.contract-card,
+.support-card,
+.info-box,
+.dashboard-card,
+.diagnosis-card,
+.data-card,
+.kpi-card,
+.stat-card {
+  background: #fffcf7 !important;
+  border: 1.5px solid #d6bfa6 !important;
+  box-shadow: 0 3px 12px rgba(90, 60, 25, 0.10) !important;
+}
+
+.hero-card,
+.intro-card,
+.guide-card,
+.notice-card,
+.message-card,
+.register-guide,
+.register-info,
+.family-note-box {
+  background: #ffe8cc !important;
+  border: 1.5px solid #d39b63 !important;
+}
+
+.feature-card {
+  background: #fff0d9 !important;
+}
+
+.metric-card,
+.dashboard-card,
+.summary-card,
+.kpi-card,
+.stat-card {
+  background: #fff8ed !important;
+}
+
+.support-card,
+.data-card {
+  background: #eef7e8 !important;
+  border-color: #9bbf93 !important;
+}
+
+table {
+  background: #fffcf7 !important;
+}
+
+th {
+  background: #f3d7b5 !important;
+  color: #111111 !important;
+}
+
+td {
+  background: #fffcf7 !important;
+  color: #111111 !important;
+}
+
+input,
+select,
+textarea {
+  background: #fffef9 !important;
+  color: #111111 !important;
+  border: 1.5px solid #9b7b5f !important;
+}
+
+button,
+.btn,
+.btn-primary,
+.nav-button.active,
+.tab-button.active {
+  background: #1f6f43 !important;
+  color: #ffffff !important;
+  border: 2px solid #1f6f43 !important;
+}
+
+.nav-button,
+.tab-button {
+  background: #f4dfc6 !important;
+  color: #111111 !important;
+  border: 1.5px solid #9b7b5f !important;
+}
+
+p, li, small, .muted, .note, .subtext {
+  color: #333333 !important;
+}
+</style>
+
+
+<style>
+/* ===== Strong visible border override 2026-08-21 ===== */
+/* 淡い背景でもカード・枠が見えるようにする */
+
+.card,
+.feature-card,
+.metric-card,
+.summary-card,
+.todo-card,
+.contract-card,
+.support-card,
+.info-box,
+.dashboard-card,
+.diagnosis-card,
+.data-card,
+.kpi-card,
+.stat-card,
+.hero-card,
+.intro-card,
+.guide-card,
+.notice-card,
+.message-card,
+.register-guide,
+.register-info,
+.family-note-box,
+table {
+  border: 2px solid #3a3128 !important;
+  border-radius: 16px !important;
+}
+
+input,
+select,
+textarea {
+  border: 2px solid #3a3128 !important;
+  border-radius: 10px !important;
+}
+
+th,
+td {
+  border: 1.5px solid #3a3128 !important;
+}
+</style>
+
+
+<style>
+/* ===== Asken-like green cream UI override 2026-08-21 ===== */
+/* あすけん風：クリーム背景＋濃いグリーン＋黄緑アクセント */
+
+:root {
+  --app-bg: #fff8ea;
+  --card-bg: #fffdf7;
+  --card-border: #c8b894;
+
+  --green: #79b33a;
+  --green-dark: #4f8f24;
+  --green-deep: #2f6b1f;
+  --green-soft: #eef7dc;
+
+  --accent-lime: #d8f04f;
+  --section-bg: #eadfd4;
+
+  --text-main: #111111;
+  --text-sub: #333333;
+
+  --warn-bg: #fff1c2;
+  --warn-text: #7c2d12;
+  --danger-bg: #fde8e8;
+  --danger-text: #7f1d1d;
+
+  --shadow-soft: 0 4px 12px rgba(80, 60, 30, 0.10);
+}
+
+/* 全体背景 */
+html,
+body {
+  background: var(--app-bg) !important;
+  color: var(--text-main) !important;
+}
+
+/* ページ全体 */
+main,
+.app,
+.container,
+.page,
+.content,
+.tab-content {
+  background: transparent !important;
+}
+
+/* 大きなカード・各情報カード */
+.card,
+.panel,
+.section-card,
+.feature-card,
+.feature-box,
+.metric-card,
+.summary-card,
+.todo-card,
+.contract-card,
+.support-card,
+.info-box,
+.dashboard-card,
+.diagnosis-card,
+.data-card,
+.kpi-card,
+.stat-card {
+  background: var(--card-bg) !important;
+  border: 2px solid var(--card-border) !important;
+  border-radius: 18px !important;
+  box-shadow: var(--shadow-soft) !important;
+}
+
+/* 黒枠が強すぎる場合の上書き */
+table,
+input,
+select,
+textarea {
+  border-color: var(--card-border) !important;
+}
+
+/* タブ・ナビゲーション */
+.nav-button,
+.tab-button,
+.tabs button {
+  background: #efe2c7 !important;
+  color: #111111 !important;
+  border: 1.5px solid #b59f78 !important;
+  border-radius: 10px !important;
+  font-weight: 800 !important;
+}
+
+.nav-button.active,
+.tab-button.active,
+.tabs button.active,
+button.active {
+  background: var(--green) !important;
+  color: #ffffff !important;
+  border: 2px solid var(--green-dark) !important;
+}
+
+/* 通常ボタン */
+button,
+.btn,
+.btn-primary {
+  background: var(--green) !important;
+  color: #ffffff !important;
+  border: 2px solid var(--green-dark) !important;
+  border-radius: 12px !important;
+  font-weight: 800 !important;
+}
+
+button:hover,
+.btn:hover,
+.btn-primary:hover {
+  background: var(--green-dark) !important;
+}
+
+/* 見出し */
+h1 {
+  color: #111111 !important;
+  font-weight: 900 !important;
+}
+
+h2,
+h3,
+h4 {
+  color: #111111 !important;
+  font-weight: 850 !important;
+}
+
+/* カード内の見出しを少し「あすけん風」の帯に寄せる */
+.card h2:first-child,
+.card h3:first-child,
+.panel h2:first-child,
+.panel h3:first-child,
+.section-card h2:first-child,
+.section-card h3:first-child,
+.todo-card h2:first-child,
+.todo-card h3:first-child,
+.dashboard-card h2:first-child,
+.dashboard-card h3:first-child,
+.info-box h2:first-child,
+.info-box h3:first-child {
+  background: var(--section-bg) !important;
+  margin: -1px -1px 18px -1px !important;
+  padding: 14px 18px !important;
+  border-radius: 16px 16px 0 0 !important;
+  border-bottom: 2px solid var(--card-border) !important;
+}
+
+/* 特徴カードはクリーム＋黄緑アクセント */
+.feature-card {
+  background: #fff3d8 !important;
+  border-color: #c8b894 !important;
+}
+
+.feature-card h3,
+.feature-card h4 {
+  color: var(--green-deep) !important;
+}
+
+/* KPIカード */
+.metric-card,
+.kpi-card,
+.stat-card,
+.summary-card {
+  background: #fffaf0 !important;
+  border-color: #c8b894 !important;
+}
+
+/* 数字は見やすく */
+.metric-card .value,
+.stat-card .value,
+.summary-number,
+.big-number {
+  color: #111111 !important;
+  font-weight: 900 !important;
+}
+
+/* 相談ナビ・公的支援系は薄いグリーン */
+.support-card,
+.data-card {
+  background: var(--green-soft) !important;
+  border-color: #9fbd75 !important;
+}
+
+/* 入力欄 */
+input,
+select,
+textarea {
+  background: #fffef8 !important;
+  color: #111111 !important;
+  border: 2px solid #b59f78 !important;
+  border-radius: 10px !important;
+  font-size: 16px !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none !important;
+  border-color: var(--green-dark) !important;
+  box-shadow: 0 0 0 3px rgba(121, 179, 58, 0.25) !important;
+}
+
+/* テーブル */
+table {
+  background: var(--card-bg) !important;
+  border: 2px solid var(--card-border) !important;
+}
+
+th {
+  background: var(--section-bg) !important;
+  color: #111111 !important;
+  border: 1.5px solid var(--card-border) !important;
+  font-weight: 900 !important;
+}
+
+td {
+  background: #fffdf7 !important;
+  color: #111111 !important;
+  border: 1.5px solid var(--card-border) !important;
+}
+
+/* バッジ */
+.badge,
+.tag,
+.status-badge {
+  display: inline-block !important;
+  padding: 6px 12px !important;
+  border-radius: 999px !important;
+  font-weight: 900 !important;
+  border: 1.5px solid transparent !important;
+}
+
+/* 確認済み・良い状態 */
+.badge-success,
+.tag-success,
+.status-checked,
+.status-done {
+  background: #e9f7ce !important;
+  color: #245b16 !important;
+  border-color: #79b33a !important;
+}
+
+/* 未確認・注意 */
+.badge-warning,
+.tag-warning,
+.status-unchecked,
+.status-pending {
+  background: var(--warn-bg) !important;
+  color: var(--warn-text) !important;
+  border-color: #d97706 !important;
+}
+
+/* 要確認 */
+.badge-danger,
+.tag-danger,
+.status-alert {
+  background: var(--danger-bg) !important;
+  color: var(--danger-text) !important;
+  border-color: #dc2626 !important;
+}
+
+/* 本文 */
+p,
+li,
+small,
+.muted,
+.note,
+.subtext {
+  color: var(--text-sub) !important;
+  line-height: 1.75 !important;
+}
+
+/* リンク */
+a {
+  color: #245b16 !important;
+  text-decoration: underline !important;
+  font-weight: 800 !important;
+}
+</style>
+
+
+<style>
+/* ===== Title lime line override 2026-08-21 ===== */
+/* タイトル周辺に黄緑アクセントを追加 */
+
+h1 {
+  display: block !important;
+  width: fit-content !important;
+  margin: 0 auto 28px auto !important;
+  padding: 0 18px 14px 18px !important;
+  border-bottom: 10px solid #b9d94b !important;
+}
+
+/* サブコピーの下にも細いアクセントライン */
+h1 + p,
+.title-sub,
+.subtitle,
+.lead {
+  border-left: 8px solid #b9d94b !important;
+  padding-left: 18px !important;
+}
+
+/* タブ全体の上にうっすら黄緑ライン */
+.tabs,
+.tab-nav,
+nav {
+  border-top: 6px solid #d8f04f !important;
+  padding-top: 18px !important;
+}
+
+/* アクティブタブはより見やすい緑に */
+.tab-button.active,
+.nav-button.active,
+.tabs button.active {
+  background: #79b33a !important;
+  border-color: #4f8f24 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 0 #4f8f24 !important;
+}
+</style>
+
+
+<style>
+/* ===== Fix failed lime lines 2026-08-21 ===== */
+/* サブコピー左線・タブ上線を消して、タイトル下ラインだけに整理 */
+
+h1 {
+  display: block !important;
+  width: fit-content !important;
+  margin: 0 auto 34px auto !important;
+  padding: 0 18px 12px 18px !important;
+  border-bottom: 8px solid #b9d94b !important;
+}
+
+/* 失敗っぽく見える左縦線を消す */
+h1 + p,
+.title-sub,
+.subtitle,
+.lead {
+  border-left: none !important;
+  padding-left: 0 !important;
+}
+
+/* タブ上の横線を消す */
+.tabs,
+.tab-nav,
+nav {
+  border-top: none !important;
+  padding-top: 0 !important;
+}
+
+/* サブコピーは普通に読みやすく */
+h1 + p {
+  margin-top: 0 !important;
+  margin-bottom: 32px !important;
+  color: #333333 !important;
+  font-weight: 700 !important;
+}
+</style>
+
+
+<style>
+/* ===== Panel border fix 2026-08-21 ===== */
+/* ダッシュボード・契約登録・共有プレビューなどの白い説明枠を見やすく囲む */
+
+/* 主要な白い説明ボックス・大きいパネル */
+.dashboard .card,
+.dashboard section,
+.register .card,
+.register section,
+.share .card,
+.share section,
+.preview .card,
+.preview section,
+.tab-pane .card,
+.tab-pane section,
+.form-intro,
+.form-guide,
+.info-panel,
+.explanation-box,
+.description-box,
+.notice-box,
+.guide-box,
+.intro-box,
+.share-preview,
+.preview-box {
+  border: 3px solid #a98f61 !important;
+  border-radius: 18px !important;
+  background: #fffdf7 !important;
+  box-shadow: 0 4px 10px rgba(80, 60, 30, 0.12) !important;
+}
+
+/* 契約登録画面の一番上の説明白枠を強制的に囲む */
+#register section:first-of-type,
+#register .card:first-of-type,
+#registration section:first-of-type,
+#registration .card:first-of-type {
+  border: 3px solid #a98f61 !important;
+  border-radius: 18px !important;
+  background: #fffdf7 !important;
+}
+
+/* ダッシュボードの大きい白枠 */
+#dashboard section,
+#dashboard .card,
+#dashboard .dashboard-card,
+#dashboard .todo-card,
+#dashboard .info-box {
+  border: 3px solid #a98f61 !important;
+  border-radius: 18px !important;
+  background: #fffdf7 !important;
+}
+
+/* 共有プレビューの白枠 */
+#share section,
+#share .card,
+#share-preview section,
+#share-preview .card,
+#preview section,
+#preview .card {
+  border: 3px solid #a98f61 !important;
+  border-radius: 18px !important;
+  background: #fffdf7 !important;
+}
+
+/* 入力欄も同じ色味で統一 */
+input,
+select,
+textarea {
+  border: 3px solid #a98f61 !important;
+  border-radius: 12px !important;
+  background: #fffef9 !important;
+}
+
+/* 白枠内の見出しを少し締める */
+#dashboard section h2,
+#dashboard .card h2,
+#register section h2,
+#register .card h2,
+#share section h2,
+#share .card h2,
+.tab-pane section h2,
+.tab-pane .card h2 {
+  color: #111111 !important;
+  font-weight: 900 !important;
+}
+</style>
+
 </head>
 <body>
   <div class="container">
@@ -1003,5 +1608,151 @@ textarea {
     updateDashboard();
     updateDiagnosis();
   </script>
+
+<script>
+/* ===== Target only guide panels line 2026-08-21 ===== */
+/* ノブが手書きした白い説明ボックスだけを囲う */
+
+document.addEventListener("DOMContentLoaded", function () {
+  const targets = [
+    "次に確認すること",
+    "家族があとで困らないために残す情報",
+    "家族に渡すための確認用一覧"
+  ];
+
+  function styleTargetPanel(el) {
+    let node = el;
+
+    for (let i = 0; i < 10 && node; i++) {
+      const rect = node.getBoundingClientRect();
+
+      /*
+        大きすぎる親全体を避ける。
+        白い説明ボックスだけに近いサイズを狙う。
+      */
+      if (
+        rect.width > 500 &&
+        rect.height > 90 &&
+        rect.height < 360
+      ) {
+        node.style.border = "3px solid #8f7a52";
+        node.style.borderRadius = "18px";
+        node.style.boxSizing = "border-box";
+        node.style.background = "#fffdf7";
+        node.style.boxShadow = "0 3px 8px rgba(80, 60, 30, 0.10)";
+        return;
+      }
+
+      node = node.parentElement;
+    }
+  }
+
+  const elements = Array.from(document.querySelectorAll("h1,h2,h3,h4,p,div,section"));
+
+  elements.forEach(el => {
+    const text = (el.textContent || "").trim();
+    if (targets.some(t => text.includes(t))) {
+      styleTargetPanel(el);
+    }
+  });
+});
+</script>
+
+
+<!-- info-box-border-targeted-start -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const targets = [
+    "家族があとで困らないために残す情報",
+    "家族に渡すための確認用一覧"
+  ];
+
+  function applyBorderToPanelByText(text) {
+    const nodes = Array.from(document.querySelectorAll("div, section, article, aside"));
+    for (const node of nodes) {
+      const content = (node.textContent || "").replace(/\s+/g, " ").trim();
+      if (!content.includes(text)) continue;
+
+      const rect = node.getBoundingClientRect();
+
+      // 大きすぎる親要素を避けて、説明ボックス本体だけを拾う
+      if (rect.width >= 500 && rect.height >= 100 && rect.height <= 320) {
+        node.style.border = "3px solid #b79b63";
+        node.style.borderRadius = "18px";
+        node.style.boxSizing = "border-box";
+        return true;
+      }
+    }
+    return false;
+  }
+
+  targets.forEach(applyBorderToPanelByText);
+});
+</script>
+<!-- info-box-border-targeted-end -->
+
+
+<!-- smallest-info-box-border-start -->
+<script>
+(function () {
+  const TARGETS = [
+    "次に確認すること",
+    "家族があとで困らないために残す情報",
+    "家族に渡すための確認用一覧"
+  ];
+
+  function applyInfoBoxBorders() {
+    TARGETS.forEach(targetText => {
+      const candidates = Array.from(document.querySelectorAll("div, section, article"))
+        .filter(el => {
+          const text = (el.textContent || "").replace(/\s+/g, " ").trim();
+          if (!text.includes(targetText)) return false;
+
+          const rect = el.getBoundingClientRect();
+          return rect.width > 400 && rect.height > 60;
+        })
+        .map(el => {
+          const rect = el.getBoundingClientRect();
+          return { el, area: rect.width * rect.height, width: rect.width, height: rect.height };
+        })
+        .sort((a, b) => a.area - b.area);
+
+      if (candidates.length === 0) return;
+
+      const box = candidates[0].el;
+
+      box.style.border = "3px solid #b79b63";
+      box.style.borderRadius = "18px";
+      box.style.background = "#fffdf7";
+      box.style.boxSizing = "border-box";
+      box.style.boxShadow = "0 3px 8px rgba(80, 60, 30, 0.10)";
+      box.style.padding = box.style.padding || "28px";
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", applyInfoBoxBorders);
+
+  // タブ切替後にも効かせる
+  document.addEventListener("click", function () {
+    setTimeout(applyInfoBoxBorders, 80);
+    setTimeout(applyInfoBoxBorders, 300);
+  });
+
+  // 画面描画が後から変わっても効かせる
+  const observer = new MutationObserver(function () {
+    applyInfoBoxBorders();
+  });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    observer.observe(document.body, { childList: true, subtree: true });
+    applyInfoBoxBorders();
+  });
+
+  setTimeout(applyInfoBoxBorders, 500);
+  setTimeout(applyInfoBoxBorders, 1000);
+})();
+</script>
+<!-- smallest-info-box-border-end -->
+
 </body>
 </html>
